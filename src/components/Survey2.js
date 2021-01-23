@@ -1,4 +1,5 @@
 import React from 'react';
+import fire from './fire';
 
 
 class Survey2 extends React.Component {
@@ -27,8 +28,18 @@ class Survey2 extends React.Component {
   }
   
   showVals() {
-    this.setState({show: true})
+    this.setState({show: true});
+    var data = {
+      Name: this.state.name,
+      Gender: this.state.gender,
+      Age: this.state.age,
+      Interests: this.state.interests,
+      Comments: this.state.comments
+    }
+    fire.database().ref('Survey 2/').push(data);
+
   }
+  
   
   render() {
     return (

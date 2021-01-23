@@ -26,8 +26,14 @@ class Survey extends React.Component {
   
   showVals() {
     this.setState({show: true});
-    fire.database().ref('survey1/p1/name/').push(this.state.name);
-
+    var data = {
+      Name: this.state.name,
+      Gender: this.state.gender,
+      Age: this.state.age,
+      Weight: this.state.weight,
+      Height: this.state.height
+    }
+    fire.database().ref('Survey 1/').push(data);
 
   }
   
