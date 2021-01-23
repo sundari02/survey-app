@@ -62562,8 +62562,8 @@ For more info, visit https://fb.me/react-mock-scheduler`);
     messagingSenderId: "260497538012",
     appId: "1:260497538012:web:260f2cae0e6b74e5ce6d19"
   };
-  var fire2 = index_esm_default.initializeApp(config);
-  const fire_default = fire2;
+  var fire3 = index_esm_default.initializeApp(config);
+  const fire_default = fire3;
 
   // src/components/Survey.js
   const react6 = __toModule(require_react());
@@ -62587,7 +62587,14 @@ For more info, visit https://fb.me/react-mock-scheduler`);
     }
     showVals() {
       this.setState({show: true});
-      fire_default.database().ref("survey1/p1/name/").push(this.state.name);
+      var data = {
+        Name: this.state.name,
+        Gender: this.state.gender,
+        Age: this.state.age,
+        Weight: this.state.weight,
+        Height: this.state.height
+      };
+      fire_default.database().ref("Survey 1/").push(data);
     }
     render() {
       return react6.default.createElement("div", null, react6.default.createElement("h2", null, "Health Form"), react6.default.createElement("div", {
@@ -62666,6 +62673,14 @@ For more info, visit https://fb.me/react-mock-scheduler`);
     }
     showVals() {
       this.setState({show: true});
+      var data = {
+        Name: this.state.name,
+        Gender: this.state.gender,
+        Age: this.state.age,
+        Interests: this.state.interests,
+        Comments: this.state.comments
+      };
+      fire_default.database().ref("Survey 2/").push(data);
     }
     render() {
       return react7.default.createElement("div", null, react7.default.createElement("h2", null, "Interest Form"), react7.default.createElement("div", {

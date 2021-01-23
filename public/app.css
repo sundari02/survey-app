@@ -47,6 +47,11 @@ button {
     font-size: 15px;
 }
 
+button:hover {
+  background-color: lightgrey;
+  cursor: pointer;
+}
+
 input[type="text"] {
     width: 15%
 }
