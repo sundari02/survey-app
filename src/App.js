@@ -14,6 +14,7 @@ import {
 import MyInfo from "./components/MyInfo"; ///< index.jsx will be automatically imported 
 import Survey from "./components/Survey";
 import Survey2 from "./components/Survey2";
+import Survey3 from "./components/Survey3";
 
 
 class App extends Component {
@@ -32,6 +33,8 @@ class App extends Component {
             <a className="link"><Link to="/MyInfo" >Home</Link></a>
             <a className="link"><Link to="/Survey" >Survey 1</Link></a>
             <a className="link"><Link to="/Survey2" >Survey 2</Link></a>
+            <a className="link"><Link to="/Survey3"
+            >Survey 3</Link></a>
             
           
         </nav>
@@ -45,6 +48,9 @@ class App extends Component {
           </Route>
           <Route path="/Survey2">
             <Survey2 />
+          </Route>
+          <Route path="/Survey3">
+            <Survey3 />
           </Route>
         </Switch>
       </Router>

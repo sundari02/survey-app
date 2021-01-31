@@ -85,8 +85,11 @@ a {
 
 nav {
   display: grid;
-  background-color:;
 
 }
 
-
+.error {
+  text-align: center;
+  color: red;
+  font-size: 15px;
+}

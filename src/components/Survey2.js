@@ -13,7 +13,7 @@ class Survey2 extends React.Component {
       interests:"",
       height:"",
       comments: "",
-      show: false
+      show: false,
     }
     this.handleChange = this.handleChange.bind(this)
     this.showVals = this.showVals.bind(this)
@@ -28,7 +28,7 @@ class Survey2 extends React.Component {
   }
   
   showVals() {
-    this.setState({show: true});
+    this.setState({show:true});
     var data = {
       Name: this.state.name,
       Gender: this.state.gender,
@@ -36,7 +36,7 @@ class Survey2 extends React.Component {
       Interests: this.state.interests,
       Comments: this.state.comments
     }
-    fire.database().ref('Survey 2/').push(data);
+    fire.database().ref('Survey 2/').push(data)
 
   }
   
@@ -78,7 +78,7 @@ class Survey2 extends React.Component {
         </div>
 
         <div className="question">
-         <label>Other comments: <br/>
+         <label>Other comments (optional): <br/>
           <textarea name="comments" value={this.state.comments}
           onChange={this.handleChange} /> 
         </label><br/>
@@ -90,6 +90,8 @@ class Survey2 extends React.Component {
         <div className="submit">
         <button onClick={this.showVals}>Submit</button>
         </div>  
+
+
         <h3>Name: {this.state.show ? this.state.name : null} </h3>      
         <h3>Gender: {this.state.show ? this.state.gender : null} </h3>
         <h3>Age: {this.state.show ? this.state.age : null}</h3>

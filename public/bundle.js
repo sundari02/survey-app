@@ -12858,12 +12858,12 @@
     if (true) {
       (function() {
         "use strict";
-        var React8 = require_react();
+        var React9 = require_react();
         var _assign = require_object_assign();
         var Scheduler = require_scheduler();
         var checkPropTypes = require_checkPropTypes();
         var tracing = require_tracing();
-        var ReactSharedInternals = React8.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+        var ReactSharedInternals = React9.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
         if (!ReactSharedInternals.hasOwnProperty("ReactCurrentDispatcher")) {
           ReactSharedInternals.ReactCurrentDispatcher = {
             current: null
@@ -12916,7 +12916,7 @@
             }
           }
         }
-        if (!React8) {
+        if (!React9) {
           {
             throw Error("ReactDOM was loaded before React. Make sure you load the React package before loading ReactDOM.");
           }
@@ -14261,7 +14261,7 @@
         var didWarnInvalidChild = false;
         function flattenChildren(children) {
           var content = "";
-          React8.Children.forEach(children, function(child2) {
+          React9.Children.forEach(children, function(child2) {
             if (child2 == null) {
               return;
             }
@@ -14272,7 +14272,7 @@
         function validateProps(element, props) {
           {
             if (typeof props.children === "object" && props.children !== null) {
-              React8.Children.forEach(props.children, function(child2) {
+              React9.Children.forEach(props.children, function(child2) {
                 if (child2 == null) {
                   return;
                 }
@@ -21306,7 +21306,7 @@
         }
         var fakeInternalInstance = {};
         var isArray = Array.isArray;
-        var emptyRefsObject = new React8.Component().refs;
+        var emptyRefsObject = new React9.Component().refs;
         var didWarnAboutStateAssignmentForComponent;
         var didWarnAboutUninitializedState;
         var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -62562,12 +62562,12 @@ For more info, visit https://fb.me/react-mock-scheduler`);
     messagingSenderId: "260497538012",
     appId: "1:260497538012:web:260f2cae0e6b74e5ce6d19"
   };
-  var fire3 = index_esm_default.initializeApp(config);
-  const fire_default = fire3;
+  var fire4 = index_esm_default.initializeApp(config);
+  const fire_default = fire4;
 
   // src/components/Survey.js
   const react6 = __toModule(require_react());
-  class Survey3 extends react6.default.Component {
+  class Survey4 extends react6.default.Component {
     constructor() {
       super();
       this.state = {
@@ -62576,7 +62576,8 @@ For more info, visit https://fb.me/react-mock-scheduler`);
         age: "",
         weight: "",
         height: "",
-        show: false
+        show: false,
+        error: false
       };
       this.handleChange = this.handleChange.bind(this);
       this.showVals = this.showVals.bind(this);
@@ -62648,7 +62649,7 @@ For more info, visit https://fb.me/react-mock-scheduler`);
       }, "Submit")), react6.default.createElement("h3", null, "Name: ", this.state.show ? this.state.name : null, " "), react6.default.createElement("h3", null, "Gender: ", this.state.show ? this.state.gender : null, " "), react6.default.createElement("h3", null, "Age: ", this.state.show ? this.state.age : null), react6.default.createElement("h3", null, "Weight: ", this.state.show ? this.state.weight : null, " kg"), react6.default.createElement("h3", null, "Height: ", this.state.show ? this.state.height : null, " cm"));
     }
   }
-  const Survey_default = Survey3;
+  const Survey_default = Survey4;
 
   // src/components/Survey2.js
   const react7 = __toModule(require_react());
@@ -62721,7 +62722,7 @@ For more info, visit https://fb.me/react-mock-scheduler`);
         onChange: this.handleChange
       })), react7.default.createElement("br", null)), react7.default.createElement("div", {
         className: "question"
-      }, react7.default.createElement("label", null, "Other comments: ", react7.default.createElement("br", null), react7.default.createElement("textarea", {
+      }, react7.default.createElement("label", null, "Other comments (optional): ", react7.default.createElement("br", null), react7.default.createElement("textarea", {
         name: "comments",
         value: this.state.comments,
         onChange: this.handleChange
@@ -62733,6 +62734,100 @@ For more info, visit https://fb.me/react-mock-scheduler`);
     }
   }
   const Survey2_default = Survey22;
+
+  // src/components/Survey3.js
+  const react8 = __toModule(require_react());
+  class Survey5 extends react8.default.Component {
+    constructor() {
+      super();
+      this.state = {
+        name: "",
+        gender: "",
+        age: "",
+        home: "",
+        destination: "",
+        flight: "",
+        show: false
+      };
+      this.handleChange = this.handleChange.bind(this);
+      this.showVals = this.showVals.bind(this);
+    }
+    handleChange(event) {
+      const {name: name9, value} = event.target;
+      this.setState({[name9]: value});
+    }
+    showVals() {
+      this.setState({show: true});
+      var data = {
+        Name: this.state.name,
+        Gender: this.state.gender,
+        Age: this.state.age,
+        Hometown: this.state.home,
+        Destination: this.state.destination,
+        Flight: this.state.flight
+      };
+      fire_default.database().ref("Survey 3/").push(data);
+    }
+    render() {
+      return react8.default.createElement("div", null, react8.default.createElement("h2", null, "Travel Form"), react8.default.createElement("div", {
+        className: "form"
+      }, react8.default.createElement("div", {
+        className: "question1"
+      }, react8.default.createElement("label", null, "Name: ", react8.default.createElement("br", null), react8.default.createElement("input", {
+        type: "text",
+        name: "name",
+        value: this.state.name,
+        onChange: this.handleChange
+      })), react8.default.createElement("br", null)), react8.default.createElement("div", {
+        className: "question"
+      }, react8.default.createElement("label", null, "Gender: ", react8.default.createElement("br", null), react8.default.createElement("input", {
+        type: "radio",
+        name: "gender",
+        value: "male",
+        checked: this.state.gender == "male",
+        onChange: this.handleChange
+      }), "Male", react8.default.createElement("input", {
+        type: "radio",
+        name: "gender",
+        value: "female",
+        checked: this.state.gender == "female",
+        onChange: this.handleChange
+      }), "Female"), react8.default.createElement("br", null)), react8.default.createElement("div", {
+        className: "question"
+      }, react8.default.createElement("label", null, "Age: ", react8.default.createElement("br", null), react8.default.createElement("input", {
+        type: "text",
+        name: "age",
+        value: this.state.age,
+        onChange: this.handleChange
+      })), react8.default.createElement("br", null)), react8.default.createElement("div", {
+        className: "question1"
+      }, react8.default.createElement("label", null, "Hometown: ", react8.default.createElement("br", null), react8.default.createElement("input", {
+        type: "text",
+        name: "home",
+        value: this.state.home,
+        onChange: this.handleChange
+      })), react8.default.createElement("br", null)), react8.default.createElement("div", {
+        className: "question1"
+      }, react8.default.createElement("label", null, "Destination: ", react8.default.createElement("br", null), react8.default.createElement("input", {
+        type: "text",
+        name: "destination",
+        value: this.state.destination,
+        onChange: this.handleChange
+      }))), react8.default.createElement("div", {
+        className: "question1"
+      }, react8.default.createElement("label", null, "Flight: ", react8.default.createElement("br", null), react8.default.createElement("input", {
+        type: "text",
+        name: "flight",
+        value: this.state.flight,
+        onChange: this.handleChange
+      }))), react8.default.createElement("br", null)), react8.default.createElement("div", {
+        className: "submit"
+      }, react8.default.createElement("button", {
+        onClick: this.showVals
+      }, "Submit")), react8.default.createElement("h3", null, "Name: ", this.state.show ? this.state.name : null, " "), react8.default.createElement("h3", null, "Gender: ", this.state.show ? this.state.gender : null, " "), react8.default.createElement("h3", null, "Age: ", this.state.show ? this.state.age : null), react8.default.createElement("h3", null, "Hometown: ", this.state.show ? this.state.home : null, " "), react8.default.createElement("h3", null, "Destination: ", this.state.show ? this.state.destination : null, " "), react8.default.createElement("h3", null, "Flight: ", this.state.show ? this.state.flight : null, " "));
+    }
+  }
+  const Survey3_default = Survey5;
 
   // src/App.js
   const react4 = __toModule(require_react());
@@ -62753,13 +62848,19 @@ For more info, visit https://fb.me/react-mock-scheduler`);
         className: "link"
       }, react4.default.createElement(Link, {
         to: "/Survey2"
-      }, "Survey 2"))), react4.default.createElement(Switch, null, react4.default.createElement(Route, {
+      }, "Survey 2")), react4.default.createElement("a", {
+        className: "link"
+      }, react4.default.createElement(Link, {
+        to: "/Survey3"
+      }, "Survey 3"))), react4.default.createElement(Switch, null, react4.default.createElement(Route, {
         path: "/MyInfo"
       }, react4.default.createElement(MyInfo_default, null)), react4.default.createElement(Route, {
         path: "/Survey"
       }, react4.default.createElement(Survey_default, null)), react4.default.createElement(Route, {
         path: "/Survey2"
-      }, react4.default.createElement(Survey2_default, null)))));
+      }, react4.default.createElement(Survey2_default, null)), react4.default.createElement(Route, {
+        path: "/Survey3"
+      }, react4.default.createElement(Survey3_default, null)))));
     }
   }
   react_dom.default.render(react4.default.createElement(App, null), document.getElementById("root"));

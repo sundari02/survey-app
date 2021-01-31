@@ -8,10 +8,10 @@ class Survey extends React.Component {
       name: "",
       gender: "",
       age:"",
-      weight:"",
-      height:"",
+      home:"",
+      destination:"",
+      flight: "",
       show: false,
-      error: false
     }
     this.handleChange = this.handleChange.bind(this)
     this.showVals = this.showVals.bind(this)
@@ -26,25 +26,26 @@ class Survey extends React.Component {
   }
   
   showVals() {
-    this.setState({show:true});
+    this.setState({show: true});
     var data = {
       Name: this.state.name,
       Gender: this.state.gender,
       Age: this.state.age,
-      Weight: this.state.weight,
-      Height: this.state.height
+      Hometown: this.state.home,
+      Destination: this.state.destination,
+      Flight: this.state.flight
     }
-     
-    fire.database().ref('Survey 1/').push(data);
+    fire.database().ref('Survey 3/').push(data);
 
   }
   
   render() {
 
+
     return (
       <div>
 
-      <h2>Health Form</h2>
+      <h2>Travel Form</h2>
       <div className="form">
       
         <div className="question1"> 
@@ -70,19 +71,27 @@ class Survey extends React.Component {
         </label><br/>
         </div>
         
-        <div className="question">
-         <label>Weight: <br/>
-          <input type="text" name="weight" value={this.state.weight}
-          onChange={this.handleChange} /> kg
+        <div className="question1">
+         <label>Hometown: <br/>
+          <input type="text" name="home" value={this.state.home}
+          onChange={this.handleChange} />
         </label><br/>
         </div>
         
-        <div className="question">
-        <label>Height: <br/>
-          <input type="text" name="height" value={this.state.height}
-          onChange={this.handleChange} /> cm
+        <div className="question1">
+        <label>Destination: <br/>
+          <input type="text" name="destination" value={this.state.destination}
+          onChange={this.handleChange} />
         </label>
         </div>
+
+         <div className="question1">
+        <label>Flight: <br/>
+          <input type="text" name="flight" value={this.state.flight}
+          onChange={this.handleChange} />
+        </label>
+        </div>
+
         <br/>
         </div>
         
@@ -93,8 +102,9 @@ class Survey extends React.Component {
         <h3>Name: {this.state.show ? this.state.name : null} </h3>      
         <h3>Gender: {this.state.show ? this.state.gender : null} </h3>
         <h3>Age: {this.state.show ? this.state.age : null}</h3>
-        <h3>Weight: {this.state.show ? this.state.weight : null} kg</h3>
-        <h3>Height: {this.state.show ? this.state.height : null} cm</h3>
+        <h3>Hometown: {this.state.show ? this.state.home : null} </h3>
+        <h3>Destination: {this.state.show ? this.state.destination : null} </h3>
+        <h3>Flight: {this.state.show ? this.state.flight : null} </h3>
 
       </div>
     );
